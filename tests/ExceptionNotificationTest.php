@@ -4,7 +4,6 @@ namespace Javelin\ExceptionNotification\Tests;
 
 use Illuminate\Support\Facades\Mail;
 use Javelin\ExceptionNotification\ExceptionMailer;
-use Javelin\ExceptionNotification\ExceptionNotification;
 use Javelin\ExceptionNotification\Exceptions\ShouldntReportableException;
 use Javelin\ExceptionNotification\Exceptions\ShouldReportableException;
 
@@ -18,7 +17,7 @@ class ExceptionNotificationTest extends TestCase
         
         Mail::fake();
 
-        app(ExceptionNotification::class)->reportException(new ShouldReportableException());
+        app('exceptionNotification')->reportException(new ShouldReportableException());
 
         Mail::assertNotSent(ExceptionMailer::class);
 
@@ -30,7 +29,7 @@ class ExceptionNotificationTest extends TestCase
     {
         Mail::fake();
 
-        app(ExceptionNotification::class)->reportException(new ShouldReportableException());
+        app('exceptionNotification')->reportException(new ShouldReportableException());
 
         Mail::assertQueued(ExceptionMailer::class, function ($mail) {
             return strpos($mail->subject, 'The reportable exception.')
@@ -45,7 +44,7 @@ class ExceptionNotificationTest extends TestCase
         
         Mail::fake();
 
-        app(ExceptionNotification::class)->reportException(new ShouldReportableException());
+        app('exceptionNotification')->reportException(new ShouldReportableException());
 
         Mail::assertSent(ExceptionMailer::class);
         
@@ -58,7 +57,7 @@ class ExceptionNotificationTest extends TestCase
     {
         Mail::fake();
 
-        app(ExceptionNotification::class)->reportException(new ShouldntReportableException());
+        app('exceptionNotification')->reportException(new ShouldntReportableException());
 
         Mail::assertNotQueued(ExceptionMailer::class);
     }

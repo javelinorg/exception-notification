@@ -29,6 +29,8 @@ class ExceptionNotificationServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/exception-notification.php', 'exception-notification');
-        $this->app->singleton(ExceptionNotification::class);
+        $this->app->singleton('exceptionNotification', function ($app) {
+            return $app->make(ExceptionNotification::class);
+        });
     }
 }
