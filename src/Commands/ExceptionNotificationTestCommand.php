@@ -28,7 +28,7 @@ class ExceptionNotificationTestCommand extends Command
      * @return void
      */
     public function handle()
-    {   
+    {
         /** @psalm-suppress UndefinedClass **/
         app('exceptionNotification')->reportException(new ShouldReportableException());
 

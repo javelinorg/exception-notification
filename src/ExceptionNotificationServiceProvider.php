@@ -3,7 +3,6 @@
 namespace Javelin\ExceptionNotification;
 
 use Illuminate\Support\ServiceProvider;
-use Javelin\ExceptionNotification\ExceptionNotification;
 use Javelin\ExceptionNotification\Commands\ExceptionNotificationTestCommand;
 
 class ExceptionNotificationServiceProvider extends ServiceProvider
