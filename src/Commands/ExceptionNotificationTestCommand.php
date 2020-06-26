@@ -3,7 +3,6 @@
 namespace Javelin\ExceptionNotification\Commands;
 
 use Illuminate\Console\Command;
-use Javelin\ExceptionNotification\ExceptionNotification;
 use Javelin\ExceptionNotification\Exceptions\ShouldReportableException;
 
 class ExceptionNotificationTestCommand extends Command
@@ -29,8 +28,9 @@ class ExceptionNotificationTestCommand extends Command
      * @return void
      */
     public function handle()
-    {
-        app(ExceptionNotification::class)->reportException(new ShouldReportableException());
+    {   
+        /** @psalm-suppress UndefinedClass **/
+        app('exceptionNotification')->reportException(new ShouldReportableException());
 
         $this->info('Exception Notification is working');
     }
