@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/javelinorg/exception-notification.svg?style=flat-square)](https://packagist.org/packages/javelinorg/exception-notification)
 ![Tests](https://github.com/javelinorg/exception-notification/workflows/Tests/badge.svg?branch=master)
+![Psalm](https://github.com/javelinorg/exception-notification/workflows/Psalm/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/javelinorg/exception-notification.svg?style=flat-square)](https://packagist.org/packages/javelinorg/exception-notification)
 
 ## Installation
@@ -117,18 +118,11 @@ return [
 ```
 
 ## Usage
- Just add at report method in App/Exceptions/Handler file.
+ Add the below line at report method in App/Exceptions/Handler.php
 ``` php
 
-public function report(Exception $exception) 
-{
+   app('exceptionNotification')->reportException($exception);
    
-   app(ExceptionNotification::class)->reportException($exception);
-    
-   parent::report($exception);
-    
-}
-
 ```
 
 ## Testing
