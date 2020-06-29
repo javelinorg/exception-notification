@@ -10,7 +10,6 @@ use Javelin\ExceptionNotification\Exceptions\ShouldReportableException;
 class ExceptionNotificationTest extends TestCase
 {
     /** @test */
-
     public function it_wont_send_a_notification_when_its_disabled()
     {
         config(['exception-notification.enabled' => false]);

@@ -7,7 +7,7 @@ use Illuminate\Auth\AuthenticationException;
 class ShouldntReportableException extends AuthenticationException
 {
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $message = 'The not reportable exception.';
 }

@@ -18,7 +18,7 @@ trait ReportableException
     }
 
     /**
-     *  Check if the incoming entry is a reportable exception
+     *  Check if the incoming entry is a reportable exception.
      *
      * @return bool
      */

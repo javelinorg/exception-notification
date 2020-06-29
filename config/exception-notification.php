@@ -37,7 +37,7 @@ return [
     */
 
     'toAddresses' => [
-        "bar@example.com"
+        'bar@example.com'
     ],
 
     /*
@@ -51,9 +51,9 @@ return [
     */
 
     'queueOptions' => [
-        'enabled' => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',true),
-        'queue' => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', "default"),
-        'connection' => env('QUEUE_DRIVER', 'redis'),
+        'enabled'       => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',true),
+        'queue'         => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', "default"),
+        'connection'    => env('QUEUE_DRIVER', 'redis'),
     ],
 
     /*
@@ -69,7 +69,7 @@ return [
     */
 
     'report' => [
-      '*',
+        '*',
     ],
 
     /*
@@ -83,6 +83,6 @@ return [
     */
 
     'ignored_bots' => [
-       '*',
+        '*',
     ],
 ];
