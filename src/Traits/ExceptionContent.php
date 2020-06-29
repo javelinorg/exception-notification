@@ -23,9 +23,9 @@ trait ExceptionContent
 
     /**
      * Gets the content associated with the given exception.
-     * 
+     *
      * @param  FlattenException $exception
-     * 
+     *
      * @return mixed
      */
     protected function getBody(FlattenException $exception)

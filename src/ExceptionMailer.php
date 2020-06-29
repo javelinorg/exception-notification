@@ -45,6 +45,7 @@ class ExceptionMailer extends Mailable
     public function build()
     {
         $from = (object) config('exception-notification.from');
+
         return $this->from($from->address, $from->name)
             ->view('exception-notification::exception')
             ->with('content', $this->body);

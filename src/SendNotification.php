@@ -37,7 +37,7 @@ class SendNotification
      * Set exception.
      *
      * @param FlattenException $exception
-     * 
+     *
      * @return object
      */
     public function setException(FlattenException $exception) :object
