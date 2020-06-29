@@ -19,20 +19,21 @@ class ExceptionNotification
     }
 
     /**
-     * Report an excepiton
+     * Report an excepiton.
      *
      * @param \Exception $exception
+     * 
      * @return void
      */
     public function reportException($exception)
     {
         $this->exception = $exception;
 
-        if (! $this->isEnabled()) {
+        if (!$this->isEnabled()) {
             return;
         }
 
-        if (! $this->isShouldReport($this->exception)) {
+        if (!$this->isShouldReport($this->exception)) {
             return;
         }
 

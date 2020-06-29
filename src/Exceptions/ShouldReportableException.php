@@ -7,7 +7,7 @@ use Exception;
 class ShouldReportableException extends Exception
 {
     /**
-    * @var string
-    */
+     * @var string
+     */
     protected $message = "The reportable exception.";
 }

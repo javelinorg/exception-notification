@@ -8,7 +8,8 @@ use Illuminate\Queue\SerializesModels;
 
 class ExceptionMailer extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * The subject of the message.
@@ -44,7 +45,6 @@ class ExceptionMailer extends Mailable
     public function build()
     {
         $from = (object) config('exception-notification.from');
-        
         return $this->from($from->address, $from->name)
             ->view('exception-notification::exception')
             ->with('content', $this->body);

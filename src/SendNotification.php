@@ -9,7 +9,6 @@ class SendNotification
 {
     use ExceptionContent;
 
-
     protected $exception;
 
     protected $subject;
@@ -23,7 +22,7 @@ class SendNotification
     protected $queueOptions;
 
     /**
-     * Create and send a exception mail
+     * Create and send a exception mail.
      */
     public function __construct()
     {
@@ -35,9 +34,10 @@ class SendNotification
     }
 
     /**
-     * Set exception
+     * Set exception.
      *
      * @param FlattenException $exception
+     * 
      * @return object
      */
     public function setException(FlattenException $exception) :object
@@ -48,7 +48,7 @@ class SendNotification
     }
 
     /**
-     * Set the subject content
+     * Set the subject content.
      *
      * @return object
      */
@@ -60,11 +60,11 @@ class SendNotification
     }
 
     /**
-     * Set the body content
+     * Set the body content.
      *
      * @return object
      */
-    public function setBody() :object
+    public function setBody() : object
     {
         $this->body = $this->getBody($this->exception);
 
@@ -72,11 +72,11 @@ class SendNotification
     }
 
     /**
-     * Set the mailable notificaton content
+     * Set the mailable notificaton content.
      *
      * @return object
      */
-    public function setMailableContent() :object
+    public function setMailableContent() : object
     {
         $this->content = (new ExceptionMailer($this->subject, $this->body));
 
@@ -84,11 +84,11 @@ class SendNotification
     }
 
     /**
-     * Send the notification
+     * Send the notification.
      *
      * @return void
      */
-    public function send() :void
+    public function send() : void
     {
         $mail = Mail::to($this->toAddresses);
         
