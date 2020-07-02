@@ -20,7 +20,7 @@
         "illuminate/console":"^6.0|^7.0",
         "illuminate/support": "^6.0|^7.0",
         "illuminate/mail": "^6.0|^7.0",
-        "symfony/error-handler": "^5.0",
+        "symfony/error-handler": "^4.4|^5.0",
         "jaybizzle/crawler-detect": "^1.2"
     },
     "require-dev": {
