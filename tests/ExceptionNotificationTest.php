@@ -13,7 +13,7 @@ class ExceptionNotificationTest extends TestCase
     public function it_wont_send_a_notification_when_its_disabled()
     {
         config(['exception-notification.enabled' => false]);
-        
+
         Mail::fake();
 
         app('exceptionNotification')->reportException(new ShouldReportableException());
@@ -22,10 +22,12 @@ class ExceptionNotificationTest extends TestCase
 
         config(['exception-notification.enabled' => true]);
     }
-  
+
     /** @test */
     public function it_will_send_a_notification_when_an_exception_occurs()
     {
+        config(['exception-notification.queueOptions.enabled' => true]);
+
         Mail::fake();
 
         app('exceptionNotification')->reportException(new ShouldReportableException());
@@ -40,13 +42,13 @@ class ExceptionNotificationTest extends TestCase
     public function it_will_send_a_notification_when_an_exception_occurs_without_queue()
     {
         config(['exception-notification.queueOptions.enabled' => false]);
-        
+
         Mail::fake();
 
         app('exceptionNotification')->reportException(new ShouldReportableException());
 
         Mail::assertSent(ExceptionMailer::class);
-        
+
         config(['exception-notification.queueOptions.enabled' => true]);
     }
 
