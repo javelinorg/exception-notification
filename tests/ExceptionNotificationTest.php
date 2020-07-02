@@ -48,7 +48,6 @@ class ExceptionNotificationTest extends TestCase
         app('exceptionNotification')->reportException(new ShouldReportableException());
 
         Mail::assertSent(ExceptionMailer::class);
-
     }
 
 
