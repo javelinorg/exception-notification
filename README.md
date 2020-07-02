@@ -118,10 +118,14 @@ return [
 ```
 
 ## Usage
- Add the below line at report method in App/Exceptions/Handler.php
+ Add the below line in the report method in App/Exceptions/Handler.php
+ 
 ``` php
 
-   app('exceptionNotification')->reportException($exception);
+  public function report(Exception $exception) {
+    app('exceptionNotification')->reportException($exception); // <-- Add this line
+    parent::report($exception);
+  }
    
 ```
 
