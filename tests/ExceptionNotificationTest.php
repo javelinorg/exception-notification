@@ -34,7 +34,7 @@ class ExceptionNotificationTest extends TestCase
 
         Mail::assertQueued(ExceptionMailer::class, function ($mail) {
             return strpos($mail->subject, 'The reportable exception.')
-            && $mail->hasTo('bar@example.com');
+            && $mail->hasTo('email1@example.com');
         });
     }
 
@@ -58,6 +58,6 @@ class ExceptionNotificationTest extends TestCase
 
         app('exceptionNotification')->reportException(new ShouldntReportableException());
 
-        Mail::assertNotQueued(ExceptionMailer::class);
+        Mail::assertNotSent(ExceptionMailer::class);
     }
 }
