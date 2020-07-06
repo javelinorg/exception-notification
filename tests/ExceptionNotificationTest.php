@@ -24,8 +24,9 @@ class ExceptionNotificationTest extends TestCase
     }
 
     /** @test */
-    public function it_will_send_a_notification_when_an_exception_occurs()
+    public function it_will_send_a_notification_when_an_exception_occurs_with_queue()
     {
+
         config(['exception-notification.queueOptions.enabled' => true]);
 
         Mail::fake();
@@ -36,12 +37,13 @@ class ExceptionNotificationTest extends TestCase
             return strpos($mail->subject, 'The reportable exception.')
             && $mail->hasTo('email1@example.com');
         });
+
+        config(['exception-notification.queueOptions.enabled' => false]);
     }
 
     /** @test */
     public function it_will_send_a_notification_when_an_exception_occurs_without_queue()
     {
-        config(['exception-notification.queueOptions.enabled' => false]);
 
         Mail::fake();
 

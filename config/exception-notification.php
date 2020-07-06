@@ -37,7 +37,8 @@ return [
     */
 
     'toAddresses' => [
-        'bar@example.com'
+        'email1@example.com',
+        'email2@example.com',
     ],
 
     /*
@@ -51,7 +52,7 @@ return [
     */
 
     'queueOptions' => [
-        'enabled'       => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',false),
+        'enabled'       => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE', false),
         'queue'         => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', 'default'),
         'connection'    => env('QUEUE_DRIVER', 'redis'),
     ],
