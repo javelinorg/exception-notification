@@ -26,7 +26,6 @@ class ExceptionNotificationTest extends TestCase
     /** @test */
     public function it_will_send_a_notification_when_an_exception_occurs_with_queue()
     {
-
         config(['exception-notification.queueOptions.enabled' => true]);
 
         Mail::fake();
@@ -44,7 +43,6 @@ class ExceptionNotificationTest extends TestCase
     /** @test */
     public function it_will_send_a_notification_when_an_exception_occurs_without_queue()
     {
-
         Mail::fake();
 
         app('exceptionNotification')->reportException(new ShouldReportableException());
