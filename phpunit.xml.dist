@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Spatie Test Suite">
+        <testsuite name="Laravel Exception Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
