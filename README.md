@@ -59,12 +59,14 @@ return [
     | Error email recipients
     |--------------------------------------------------------------------------
     |
-    | Here you can specify the list of recipients
+    | Here you can specify an array of recipients
     |
     */
 
     'toAddresses' => [
-        "bar@example.com"
+        'email1@example.com',
+        'email2@example.com',
+        'email3@example.com',
     ],
 
     /*
@@ -72,14 +74,14 @@ return [
     | Queue customization
     |--------------------------------------------------------------------------
     |
-    | Exception notificaiton will send throuh the queue by default,
-    | Howerver you can customize it as per your needs.
+    | Exception notificaiton will send directly by default,
+    | Howerver you can enable the use of queues and customize it as per your needs.
     |
     */
 
     'queueOptions' => [
-        'enabled' => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',true),
-        'queue' => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', "default"),
+        'enabled' => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',false),
+        'queue' => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', 'default'),
         'connection' => env('QUEUE_DRIVER', 'redis'),
     ],
 
@@ -114,22 +116,33 @@ return [
     ],
 ];
 
-
 ```
 
 ## Usage
- Add the below line in the report method in App/Exceptions/Handler.php
- 
-``` php
+Add the line following line to the report method in App/Exceptions/Handler.php
 
+```php
+app('exceptionNotification')->reportException($exception);
+```
+
+Once added, the mehod should look something like this:
+
+``` php
   public function report(Exception $exception) {
-    app('exceptionNotification')->reportException($exception); // <-- Add this line
+    app('exceptionNotification')->reportException($exception); // <-- The line you added
     parent::report($exception);
   }
-   
+```
+
+Once Exception-Notification is installed and configured you can trigger a test exception by running:
+
+``` bash
+php artisan exception:throw
 ```
 
 ## Testing
+
+To run tests simply run:
 
 ``` bash
 composer test

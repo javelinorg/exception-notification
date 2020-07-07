@@ -37,7 +37,8 @@ return [
     */
 
     'toAddresses' => [
-        'bar@example.com'
+        'email1@example.com',
+        'email2@example.com',
     ],
 
     /*
@@ -45,14 +46,14 @@ return [
     | Queue customization
     |--------------------------------------------------------------------------
     |
-    | Exception notificaiton will send throuh the queue by default,
-    | Howerver you can customize it as per your needs.
+    | Exception notificaiton will send directly by default,
+    | Howerver you can enable the use of queues and customize it as per your needs.
     |
     */
 
     'queueOptions' => [
-        'enabled'       => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE',true),
-        'queue'         => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', "default"),
+        'enabled'       => env('EXCEPTION_NOTIFICATION_SHOULD_QUEUE', false),
+        'queue'         => env('EXCEPTION_NOTIFICATION_QUEUE_NAME', 'default'),
         'connection'    => env('QUEUE_DRIVER', 'redis'),
     ],
 
