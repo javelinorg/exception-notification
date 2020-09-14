@@ -119,17 +119,21 @@ return [
 ```
 
 ## Usage
-Add the line following line to the report method in App/Exceptions/Handler.php
+Add the line following block to the report method in App/Exceptions/Handler.php
 
 ```php
-app('exceptionNotification')->reportException($exception);
+ if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
+    app('exceptionNotification')->reportException($exception);
+ }
 ```
 
 Once added, the mehod should look something like this:
 
 ``` php
   public function report(Exception $exception) {
-    app('exceptionNotification')->reportException($exception); // <-- The line you added
+    if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
+      app('exceptionNotification')->reportException($exception);
+    } // <-- The block you added
     parent::report($exception);
   }
 ```
