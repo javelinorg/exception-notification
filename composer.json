@@ -27,8 +27,8 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "orchestra/testbench": "^4.0|^5.0|^6.0",
         "phpunit/phpunit": "^9.0",
-        "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^3.11"
+        "psalm/plugin-laravel": "^1.4",
+        "vimeo/psalm": "^4.1"
     },
     "autoload": {
         "psr-4": {
