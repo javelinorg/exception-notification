@@ -90,7 +90,7 @@
                                 </tr> 
                                 <tr >
                                     <td> Message </td> 
-                                    <td >  {{ $message }}  </td>
+                                    <td >  {!! $message !!}  </td>
                                 </tr>
                                 <tr>
                                     <td> Environment </td>
