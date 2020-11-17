@@ -54,6 +54,7 @@ class SendNotification
      */
     public function setSubject() :object
     {
+    
         $this->subject = $this->getSubject($this->exception);
 
         return $this;
@@ -66,6 +67,7 @@ class SendNotification
      */
     public function setBody() : object
     {
+
         $this->body = $this->getBody($this->exception);
 
         return $this;

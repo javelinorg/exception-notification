@@ -79,7 +79,7 @@
                                 <tr>
                                     <td>  User </td>
                                     <td> 
-                                        {{ optional(Auth::user()->email ?? 'No Auth / User Object') }}
+                                        {{ optional(request()->user())->email ?? 'No Auth / User Object' }}
                                     </td>
                                 </tr> 
 
