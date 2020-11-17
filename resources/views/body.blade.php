@@ -77,6 +77,13 @@
                                     </th>
                                 </tr>
                                 <tr>
+                                    <td>  User </td>
+                                    <td> 
+                                        {{ optional(Auth::user()->email ?? 'No Auth / User Object') }}
+                                    </td>
+                                </tr> 
+
+                                <tr>
                                     <td>  Requested Url </td>
                                     <td>  {{ request()->url() }} </td>
                                 </tr> 
