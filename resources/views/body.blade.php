@@ -77,6 +77,13 @@
                                     </th>
                                 </tr>
                                 <tr>
+                                    <td>  User </td>
+                                    <td> 
+                                        {{ optional(request()->user())->email ?? 'No Auth / User Object' }}
+                                    </td>
+                                </tr> 
+
+                                <tr>
                                     <td>  Requested Url </td>
                                     <td>  {{ request()->url() }} </td>
                                 </tr> 
@@ -90,7 +97,7 @@
                                 </tr> 
                                 <tr >
                                     <td> Message </td> 
-                                    <td >  {{ $message }}  </td>
+                                    <td >  {!! $message !!}  </td>
                                 </tr>
                                 <tr>
                                     <td> Environment </td>

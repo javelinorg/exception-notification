@@ -35,7 +35,6 @@ trait ExceptionContent
         $stylesheet = $renderer->getStylesheet();
 
         $content = $renderer->getBody($exception);
-
         $message = $this->escape($exception->getMessage());
 
         return  view('exception-notification::body', compact('content', 'stylesheet', 'message', 'exception'))->render();

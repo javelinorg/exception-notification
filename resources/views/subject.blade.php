@@ -1,1 +1,1 @@
-Exception - {{ $message }} - {{ request()->getHttpHost() }}
+Exception - {!! $message !!} - {{ request()->getHttpHost() }}
