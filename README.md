@@ -1,4 +1,4 @@
-# The Exception Notification package sends a mail notification when exception occurs in a Laravel application.
+# The Exception Notification package sends a mail notification when exception occurs in a Laravel application..
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/javelinorg/exception-notification.svg?style=flat-square)](https://packagist.org/packages/javelinorg/exception-notification)
 ![Tests](https://github.com/javelinorg/exception-notification/workflows/Tests/badge.svg?branch=master)
@@ -119,17 +119,26 @@ return [
 ```
 
 ## Usage
+
+### If your using Laravel 8.x or higher
+Add the line following block to the register method in App/Exceptions/Handler.php
+
+```php
+  $this->reportable(function (Throwable $th) {
+    if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
+        app('exceptionNotification')->reportException($th);
+      } // <-- The block you added
+  });
+```
+### If your using between Laravel 6.x to 7.x
 Add the line following block to the report method in App/Exceptions/Handler.php
 
 ```php
  if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
     app('exceptionNotification')->reportException($exception);
  }
-```
 
-Once added, the mehod should look something like this:
-
-``` php
+ // Once added, the mehod should look something like this:
   public function report(Exception $exception) {
     if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
       app('exceptionNotification')->reportException($exception);
