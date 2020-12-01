@@ -121,7 +121,7 @@ return [
 ## Usage
 
 ### If your using Laravel 8.x or higher
-Add the line following block to the register method in App/Exceptions/Handler.php
+Add the line following block to the **register** method in App/Exceptions/Handler.php
 
 ```php
   $this->reportable(function (Throwable $th) {
@@ -131,7 +131,7 @@ Add the line following block to the register method in App/Exceptions/Handler.ph
   });
 ```
 ### If your using between Laravel 6.x to 7.x
-Add the line following block to the report method in App/Exceptions/Handler.php
+Add the line following block to the **report** method in App/Exceptions/Handler.php
 
 ```php
  if (! is_null(app()->getProvider('Javelin\ExceptionNotification\ExceptionNotificationServiceProvider'))) {
